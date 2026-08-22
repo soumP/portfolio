@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Soumya Pandey, AI Product Manager. A playable Pokedex portfolio of shipped AI products.">
-<title>The PM Dex</title>
+<title>The AI PM Dex — Soumya Pandey</title>
 <style>
   :root {
     --room: #E7E4DD;
@@ -404,8 +404,9 @@
 
 <div class="wrap">
   <div class="topbar">
-    <div class="title"><span class="ball"></span><h1>The&nbsp;PM&nbsp;Dex</h1></div>
+    <div class="title"><span class="ball"></span><h1>The&nbsp;AI&nbsp;PM&nbsp;Dex</h1></div>
     <div style="display:flex;gap:8px;">
+      <a class="theme-btn" href="https://medium.com/@soumyabhardwaj27" target="_blank" rel="noopener" style="text-decoration:none;">✎ Writing</a>
       <button class="intro-btn" id="replayBtn">↻ Intro</button>
       <button class="theme-btn" id="themeBtn">◐ Room light</button>
     </div>
@@ -449,7 +450,7 @@
   <div class="helper">↑ pick an entry on the right · press CATCH to open the case study · ESC closes</div>
 
   <footer class="pg">
-    <div class="note">▸ Projects &amp; numbers are real (from Soumya's resume). The decision forks are reconstructed to fit each project, replace the fork text with what actually happened before sharing. The Kill List entries are placeholders awaiting real "said no" stories.</div>
+    <div class="note">▸ Every project and number here is real. Catch an entry to see the decision behind it — full write-ups on <a href="https://medium.com/@soumyabhardwaj27" target="_blank" rel="noopener" style="color:var(--accent-ink);">Medium</a>.</div>
   </footer>
 </div>
 
@@ -473,10 +474,21 @@ const TYPE_COLORS = {
 const STAT_KEYS = ["Impact","Ambig","Scope","Users","0→1","Grit"];
 
 const PROJECTS = [
-  { no:"001", name:"Standux", types:["AI","Agent"], seed:1471,
+  { no:"001", name:"Clausewise", types:["AI","Money"], seed:4242,
+    flavor:"Contract Intelligence, a RAG engine that reads multi-million-dollar contracts and flags out-of-scope requests before they leak revenue, with confidence scores, clause-level evidence, and natural-language contract chat. Troopr's largest deal to date.",
+    stats:[5,5,4,5,5,4], impact:"largest deal · 90%",
+    meta:{Company:"Troopr Labs", Role:"AI Product Manager", When:"2024–now"}, medium:"",
+    fork:{ q:"Reviewers were keyword-searching contracts by hand and still missing out-of-scope requests that leaked revenue on multi-million-dollar deals. Ship a smarter keyword/rules search, or a RAG engine that understands the clauses themselves?",
+      a:{t:"Improve keyword & rules-based search.", chosen:false},
+      b:{t:"Build RAG semantic retrieval over the contracts.", chosen:true},
+      did:"I built a RAG semantic-retrieval engine with confidence scores and clause-level evidence.",
+      why:"Keyword search matches words, not meaning, so it can't tell a clause is out of scope. Grounding retrieval in each contract's own clauses, with confidence scores and evidence a reviewer can verify, cut review from days to 30 minutes at 90% accuracy on the largest deal in Troopr's history, delivered with a pod of 3 engineers and 1 QA.",
+      outcome:{big:"90%", lbl:"accuracy · days → 30 min · 500+ users in 3 months · −20% change orders"} } },
+
+  { no:"002", name:"Standux", types:["AI","Agent"], seed:1471,
     flavor:"Troopr AI Scrum Master, an agentic AI that writes a team's standup from their real Jira, GitHub, and Slack activity, so the update happens without the meeting.",
     stats:[4,5,4,3,5,4], impact:"no-meeting standups",
-    meta:{Company:"Troopr Labs", Role:"Founding PM", When:"2024–now"},
+    meta:{Company:"Troopr Labs", Role:"AI Product Manager", When:"2024–now"}, medium:"",
     fork:{ q:"Teams are drowning in status meetings, but they're also sick of one more bot to babysit. Build a chatbot people have to prompt, or an agent that reads their real work and writes the standup itself?",
       a:{t:"A chatbot the team prompts for updates.", chosen:false},
       b:{t:"An agent that reads real Jira/GitHub/Slack activity.", chosen:true},
@@ -484,21 +496,21 @@ const PROJECTS = [
       why:"A bot you have to prompt just becomes another task. Pulling from real Jira, GitHub, and Slack activity meant the update wrote itself, with a human in the loop to edit before it posts.",
       outcome:{big:"0→1", lbl:"agentic standups from real work · human in the loop · no extra meeting"} } },
 
-  { no:"002", name:"Omnibox", types:["AI","Platform"], seed:8821,
-    flavor:"Enjo Inbox, an omnichannel AI shared inbox that helps support teams resolve conversations faster, with LLMs taking busywork off each thread while a human stays in the loop.",
-    stats:[4,4,4,4,3,4], impact:"faster resolves",
-    meta:{Company:"Troopr Labs", Role:"Founding PM", When:"2024–now"},
-    fork:{ q:"Support teams juggle email, chat, and social in separate tools, losing context between them. Bolt AI onto one channel, or unify everything into a single AI shared inbox?",
-      a:{t:"Add AI assistance to the existing channels.", chosen:false},
-      b:{t:"Unify every channel into one AI inbox.", chosen:true},
-      did:"I unified the channels into one AI shared inbox.",
-      why:"Fragmented tools meant context died between channels and agents repeated themselves. One omnichannel inbox with LLM assistance kept the whole thread in one place and helped teams resolve faster, and gave Sales a story that landed with enterprise buyers.",
-      outcome:{big:"1 inbox", lbl:"unified across email, chat & social · relaunched with a GTM push to enterprise"} } },
+  { no:"003", name:"Omnibox", types:["AI","Platform"], seed:8821,
+    flavor:"Enjo's support AI, Ask AI, Agent Assist, summaries and sentiment, grounded in each customer's own knowledge base and past tickets so the answers are trustworthy, with a human in the loop. Auto-KB turns every resolved ticket into a reusable article.",
+    stats:[5,4,4,5,4,4], impact:"85% acc · 8 logos",
+    meta:{Company:"Troopr Labs", Role:"AI Product Manager", When:"2024–now"}, medium:"",
+    fork:{ q:"Support teams didn't trust generic AI answers. Wire up a strong general-purpose LLM, or ground every answer in each customer's own knowledge base and ticket history?",
+      a:{t:"Use a strong general-purpose LLM.", chosen:false},
+      b:{t:"Ground answers in their own KB + past tickets (RAG).", chosen:true},
+      did:"I grounded the support AI in each customer's own knowledge base and historical tickets.",
+      why:"A general model sounds confident and gets domain specifics wrong, which kills trust fast. Grounding in the customer's own KB and past resolutions, with a human in the loop, reached 85% answer accuracy in production across 8 enterprise customers including Snapchat, Epic Games and Aptean, and auto-KB made accuracy compound with every resolved ticket.",
+      outcome:{big:"85%", lbl:"answer accuracy in production · 8 enterprise customers · −30% handle time"} } },
 
-  { no:"003", name:"Funnelisk", types:["Growth"], seed:3390,
+  { no:"004", name:"Funnelisk", types:["Growth"], seed:3390,
     flavor:"Rebuilt a leaky activation funnel end-to-end. Hunts down the drop-off points; first-bot activation and engagement both climb once it strikes.",
     stats:[4,3,3,5,2,3], impact:"+62% engage",
-    meta:{Company:"Troopr Labs", Role:"Founding PM", When:"2024–now"},
+    meta:{Company:"Troopr Labs", Role:"AI Product Manager", When:"2024–now"}, medium:"",
     fork:{ q:"Users are dropping deep in a multi-step onboarding. Strip steps out to cut friction, or resequence so the first 'win' lands before you ask for effort?",
       a:{t:"Remove steps, cut the friction outright.", chosen:false},
       b:{t:"Resequence, deliver the first win, then ask.", chosen:true},
@@ -506,10 +518,10 @@ const PROJECTS = [
       why:"Users were being asked for effort before they saw any value. Getting them to first-bot activation earlier lifted activation 32% and engagement 62%, while keeping the setup that made them stick.",
       outcome:{big:"+62%", lbl:"user engagement, with first-bot activation up 32%"} } },
 
-  { no:"004", name:"Anomalisk", types:["Data","Ops"], seed:6612,
+  { no:"005", name:"Anomalisk", types:["Data","Ops"], seed:6612,
     flavor:"Tames noisy operational alerts for field fleets. Cut data anomalies sharply and pushed on-time delivery into the high nineties for Porter.",
     stats:[4,4,3,4,3,4], impact:"TAT → 99%",
-    meta:{Company:"Zorp", Role:"Associate PM", When:"2023–24"},
+    meta:{Company:"Zorp", Role:"Associate PM", When:"2023–24"}, medium:"",
     fork:{ q:"Field ops are drowning in false alerts and missing the real ones. Tighten alert thresholds to cut the noise, or rebuild how anomalies are detected?",
       a:{t:"Tune thresholds, quick relief from the noise.", chosen:false},
       b:{t:"Rebuild the anomaly detection itself.", chosen:true},
@@ -517,10 +529,10 @@ const PROJECTS = [
       why:"Tighter thresholds would have hidden real anomalies alongside the false ones. Reworking detection cut data anomalies 70% for Porter and lifted order-delivery TAT from 85% to 99%.",
       outcome:{big:"85→99%", lbl:"order-delivery TAT for Porter · data anomalies down 70%"} } },
 
-  { no:"005", name:"Databee", types:["AI","Data"], seed:9004,
+  { no:"006", name:"Databee", types:["AI","Data"], seed:9004,
     flavor:"BlueBee & Talk to Data, a pair of AI ops initiatives. Lets clients query their data in plain language and automates manual busywork to speed turnaround.",
     stats:[3,4,4,3,4,4], impact:"AI ops",
-    meta:{Company:"Zorp", Role:"Associate PM", When:"2023–24"},
+    meta:{Company:"Zorp", Role:"Associate PM", When:"2023–24"}, medium:"",
     fork:{ q:"Ops teams burn hours on manual data pulls and reports. Ship them more dashboards, or let them just ask their data in natural language?",
       a:{t:"Ship more dashboards, familiar and predictable.", chosen:false},
       b:{t:"Build natural-language querying (Talk to Data).", chosen:true},
@@ -528,10 +540,10 @@ const PROJECTS = [
       why:"Dashboards answer the questions you anticipate, and ops kept hitting the ones you don't. Talk to Data (with BlueBee) let clients like Porter and Zomato ask directly and cut manual work, improving turnaround.",
       outcome:{big:"↓ manual", lbl:"work for Porter & Zomato via plain-language data access"} } },
 
-  { no:"006", name:"Opsprite", types:["Platform","Mobile"], seed:2015,
+  { no:"007", name:"Opsprite", types:["Platform","Mobile"], seed:2015,
     flavor:"A mobile-first, low-code ops platform for field workers at Porter, Zepto, and Zomato, hands-free operations, task reconciliation, and real-time workflow on the move.",
     stats:[4,4,5,4,4,4], impact:"field platform",
-    meta:{Company:"Zorp", Role:"Associate PM", When:"2023–24"},
+    meta:{Company:"Zorp", Role:"Associate PM", When:"2023–24"}, medium:"",
     fork:{ q:"Field workers have no keyboard and patchy signal. Give them a full-featured app, or a stripped, hands-free low-code flow that just works on the move?",
       a:{t:"Build a rich, full-featured mobile app.", chosen:false},
       b:{t:"Go hands-free and low-code for the field.", chosen:true},
@@ -540,19 +552,12 @@ const PROJECTS = [
       outcome:{big:"3 fleets", lbl:"Porter, Zepto & Zomato running field ops on the platform"} } }
 ];
 
-// PLACEHOLDERS, give Soumya's real "said no" stories to replace these.
-const KILLED = [
-  { no:"K01", name:"Your Kill #1", types:["Killed"], seed:2222,
-    flavor:"Reserved for a feature you deliberately chose not to build. Saying no is half the job.",
-    stats:[2,3,3,3,2,3], impact:"placeholder",
-    killnote:"[Placeholder] Tell me one real thing you said no to, a feature you killed at spec, a request you pushed back on, and why. I'll turn it into a real entry.",
-    outcome:{big:"?", lbl:"add a real 'said no' decision here"} },
-  { no:"K02", name:"Your Kill #2", types:["Killed"], seed:7777,
-    flavor:"Reserved for a scope cut or bet you walked away from, and what it protected.",
-    stats:[3,3,4,3,2,3], impact:"placeholder",
-    killnote:"[Placeholder] A second call where you chose not to build. The Kill List is your differentiator, few portfolios show the nos.",
-    outcome:{big:"?", lbl:"add a real 'said no' decision here"} }
-];
+// KILL LIST — hidden until real "said no" stories are added. The Kill List is a
+// strong differentiator (few portfolios show the nos), so add 1–2 real entries when ready:
+// { no:"K01", name:"...", types:["Killed"], seed:1234, flavor:"...", stats:[..6..],
+//   impact:"...", killnote:"what you said no to and why", outcome:{big:"...", lbl:"..."} }
+// It renders automatically as soon as this array is non-empty.
+const KILLED = [];
 
 /* ---------- procedural pixel sprite ---------- */
 function rng(seed){ let s=seed>>>0; return ()=>{ s=(s*1664525+1013904223)>>>0; return s/4294967296; }; }
@@ -626,8 +631,7 @@ function rosterRow(item, killed){
 }
 roster.innerHTML =
   PROJECTS.map(p=>rosterRow(p,false)).join('') +
-  `<div class="roster-div">Released · the kill list</div>` +
-  KILLED.map(p=>rosterRow(p,true)).join('');
+  (KILLED.length ? `<div class="roster-div">Released · the kill list</div>` + KILLED.map(p=>rosterRow(p,true)).join('') : '');
 document.getElementById('rosterCount').textContent = PROJECTS.length + "/" + (PROJECTS.length);
 
 const ALL = [...PROJECTS, ...KILLED];
@@ -674,7 +678,8 @@ function openSheet(item){
         <div class="didline" id="didline"></div>
         <p id="why"></p>
         <div class="outcome"><span class="big">${item.fork.outcome.big}</span><span class="lbl">${item.fork.outcome.lbl}</span></div>
-      </div>`;
+      </div>
+      ${item.medium ? `<a class="cs-link" href="${item.medium}" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--accent);border:2px solid var(--accent-ink);padding:10px 14px;border-radius:8px;text-decoration:none;">📖 Read the full case study on Medium →</a>` : ''}`;
   }
   page.innerHTML = `
     <div class="page-bar">
@@ -882,7 +887,7 @@ const INTRO_LINES = [
   "Hi, I'm Soumya. Welcome to my Dex.",
   "I got into product watching smart people drown in busywork, updating tickets, writing the same status update twice, digging through threads to figure out what a customer actually needed.",
   "I wanted to build the thing that made all of that disappear.",
-  "That's been the thread through 4+ years building enterprise SaaS and AI products from 0→1, most recently as Founding PM at Troopr Labs.",
+  "That's been the thread through 3+ years building enterprise SaaS and AI products from 0→1, most recently as AI Product Manager at Troopr Labs — on an engineering foundation from Oracle and a CS background from NIT Jamshedpur.",
   "I care about outcomes over output, and about AI people actually trust.",
   "So I built my portfolio as a field guide. Catch a product to see the decision behind it."
 ];
